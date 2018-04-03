@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - apt-get install -y git
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - git clone https://901f840e81b80601a15a223e67e41de7b0b3d61a:x-oauth-basic@github.com/rayl15/android-basics-nanodegree-by-google
+      - cd android-basics-nanodegree-by-google
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
