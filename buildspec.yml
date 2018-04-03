@@ -13,7 +13,9 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - git clone -b dev  https://rayl15:7a0a7904e3386b5c446156181ed3505de568a7a8@github.com/sourcefuse/dealer-xtension.git
+      - mv key id_rsa
+      - cp id_rsa ~/.ssh/
+      - git clone -b dev  git@github.com:sourcefuse/dealer-xtension.git
       - cd dealer-xtension
       - DEPLOY_REVISION=`git log -1 | grep "commit" | cut -d " " -f 2`
       - DEPLOY_USER=`git log -1 | grep "Author" | cut -d " " -f 2`
