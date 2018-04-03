@@ -6,6 +6,8 @@ phases:
       - apt-get update -y
       - apt-get install -y git
       - apt-get install -y jq
+      - apt-get install openssh-server
+      - service ssh restart
   pre_build:
     commands:
       - echo Entered the pre_build phase...
