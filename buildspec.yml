@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - git clone -b dev  https://rayl15:b6ed3a274970943b5cef0634a28539740fb8ec56@github.com/sourcefuse/dealer-xtension.git
+      - git clone -b dev  https://rayl15:7a0a7904e3386b5c446156181ed3505de568a7a8@github.com/sourcefuse/dealer-xtension.git
       - cd android-basics-nanodegree-by-google
       - DEPLOY_REVISION=`git log -1 | grep "commit" | cut -d " " -f 2`
       - DEPLOY_USER=`git log -1 | grep "Author" | cut -d " " -f 2`
