@@ -14,6 +14,8 @@ phases:
       - echo Build started on `date`
       - git clone https://901f840e81b80601a15a223e67e41de7b0b3d61a:x-oauth-basic@github.com/rayl15/android-basics-nanodegree-by-google
       - cd android-basics-nanodegree-by-google
+      - chmod +x git.sh
+      - sh git.sh
   post_build:
     commands:
       - echo Entered the post_build phase...
