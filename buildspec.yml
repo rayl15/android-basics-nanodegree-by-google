@@ -5,6 +5,7 @@ phases:
       - echo Entered the install phase...
       - apt-get update -y
       - apt-get install -y git
+      - apt-get install -y jq
   pre_build:
     commands:
       - echo Entered the pre_build phase...
@@ -14,8 +15,12 @@ phases:
       - echo Build started on `date`
       - git clone https://901f840e81b80601a15a223e67e41de7b0b3d61a:x-oauth-basic@github.com/rayl15/android-basics-nanodegree-by-google
       - cd android-basics-nanodegree-by-google
-      - chmod +x git.sh
-      - sh git.sh
+      - export DEPLOY_REVISION=`git log -1 | grep "commit" | cut -d " " -f 2`
+      - export DEPLOY_USER=`git log -1 | grep "Author" | cut -d " " -f 2`
+      - export DEPLOY_DESCRIPTION=`git log -1 | grep "Date"` 
+      - export DEPLOY_CHANGELOG=`git log -1 | awk 'NR==1{next}NR==2{next}NR==3{next}NR==4{next}1'`   
+      - chmod +x nrd
+      - ./nrd -a Dealer-extension -c $DEPLOY_CHANGELOG -d DEPLOY_DESCRIPTION -r $DEPLOY_REVISION -u $DEPLOY_USER
   post_build:
     commands:
       - echo Entered the post_build phase...
