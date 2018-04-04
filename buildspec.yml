@@ -5,6 +5,8 @@ phases:
       - echo Entered the install phase...
       - apk update 
       - apk add jq 
+      - apk add curl
+      - apk add sed
   pre_build:
     commands:
       - echo Entered the pre_build phase...
