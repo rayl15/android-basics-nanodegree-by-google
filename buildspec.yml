@@ -23,7 +23,7 @@ phases:
       - DEPLOY_DESCRIPTION=`git log -1 | grep "Date"` 
       - DEPLOY_CHANGELOG=`git log -1 | awk 'NR==1{next}NR==2{next}NR==3{next}NR==4{next}1'`   
       - chmod +x nrd
-      - ./nrd -a Dealer-extension -c "'$DEPLOY_CHANGELOG'" -d "'$DEPLOY_DESCRIPTION'" -r "'$DEPLOY_REVISION'" -u "'$DEPLOY_USER'"
+      - ./nrd -a Dealer-extension -c "$DEPLOY_CHANGELOG" -d "$DEPLOY_DESCRIPTION" -r "$DEPLOY_REVISION" -u "$DEPLOY_USER"
   post_build:
     commands:
       - echo Entered the post_build phase...
