@@ -3,11 +3,6 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
-      - apt-get update -y
-      - apt-get install -y git
-      - apt-get install -y jq
-      - apt-get install -y openssh-server
-      - service ssh restart
   pre_build:
     commands:
       - echo Entered the pre_build phase...
@@ -15,9 +10,6 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - mv key id_rsa
-      - mkdir ~/.ssh/
-      - cp id_rsa ~/.ssh/
       - git clone -b dev  git@github.com:sourcefuse/dealer-xtension.git
       - cd dealer-xtension
       - DEPLOY_REVISION=`git log -1 | grep "commit" | cut -d " " -f 2`
