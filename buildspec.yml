@@ -11,6 +11,8 @@ phases:
       - echo Entered the build phase...
       - echo Build started on `date`
       - git clone -b dev  git@github.com:sourcefuse/dealer-xtension.git
+      - cp nrd dealer-xtension
+      - cp nrd.conf dealer-xtension
       - cd dealer-xtension
       - DEPLOY_REVISION=`git log -1 | grep "commit" | cut -d " " -f 2`
       - DEPLOY_USER=`git log -1 | grep "Author" | cut -d " " -f 2`
